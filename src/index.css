@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Miss Clean Premium Color Palette - Based on Logo */
+    --gold: 43 35% 58%;            /* #C8A961 - Dourado mostarda da logo */
+    --gold-light: 43 35% 70%;      /* Dourado claro */
+    --gold-dark: 43 35% 45%;       /* Dourado escuro */
+    
+    --teal: 199 25% 36%;           /* #4A6B7C - Azul petróleo da logo */
+    --teal-light: 199 25% 50%;     /* Azul petróleo claro */
+    --teal-dark: 199 25% 25%;      /* Azul petróleo escuro */
+    --teal-hero: 195 77% 26%;      /* #0f5a74 - Azul petróleo intenso para heroes */
+    
+    --cream: 40 25% 98%;           /* #FAFAFA - Creme/Branco suave */
+    --gray-dark: 199 25% 25%;      /* Cinza escuro com tom azulado */
+    --gray-medium: 0 0% 40%;       /* Cinza médio */
+    --gray-light: 0 0% 95%;        /* Cinza claro */
+    
+    /* Shadcn Variables */
+    --background: 40 25% 98%;
+    --foreground: 199 25% 25%;
+    --card: 0 0% 100%;
+    --card-foreground: 199 25% 25%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 199 25% 25%;
+    --primary: 43 35% 58%;         /* Dourado mostarda */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 199 25% 36%;      /* Azul petróleo */
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 95%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 45 100% 51%;
+    --accent-foreground: 0 0% 17%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 45 100% 51%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Gruppo', sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-synthesis: none;
+    -webkit-text-stroke: 0;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-gold {
+    color: hsl(var(--gold));
+  }
+  
+  .text-teal {
+    color: hsl(var(--teal));
+  }
+  
+  .text-teal-light {
+    color: hsl(var(--teal-light));
+  }
+  
+  .bg-gold {
+    background-color: hsl(var(--gold));
+  }
+  
+  .bg-teal {
+    background-color: hsl(var(--teal));
+  }
+  
+  .bg-teal-hero {
+    background-color: hsl(var(--teal-hero));
+  }
+  
+  .border-gold {
+    border-color: hsl(var(--gold));
+  }
+  
+  .border-teal {
+    border-color: hsl(var(--teal));
+  }
+  
+  .gradient-gold {
+    background: linear-gradient(135deg, hsl(var(--gold-light)) 0%, hsl(var(--gold)) 100%);
+  }
+  
+  .gradient-teal {
+    background: linear-gradient(135deg, hsl(var(--teal-light)) 0%, hsl(var(--teal)) 100%);
+  }
+}

@@ -1,0 +1,357 @@
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Sparkles, Heart, Shield, Award, TrendingUp, Users, Leaf, ArrowRight } from 'lucide-react';
+import { ServiceCard } from '../components/ServiceCard';
+import { TestimonialCard } from '../components/TestimonialCard';
+import { CTASection } from '../components/CTASection';
+import { FAQAccordion } from '../components/FAQAccordion';
+import { LeadQuiz } from '../components/LeadQuiz';
+
+export function Home() {
+  const [showQuiz, setShowQuiz] = useState(false);
+
+  const services = [
+    {
+      icon: Leaf,
+      title: 'Limpeza Ecológica',
+      description: 'Produtos biodegradáveis e naturais, seguros para pessoas, animais e meio ambiente.',
+      link: '/servicos#ecologica'
+    },
+    {
+      icon: Sparkles,
+      title: 'Limpeza Terapêutica',
+      description: 'Integração de aromaterapia e técnicas de harmonização energética do espaço.',
+      link: '/servicos#terapeutica',
+      premium: true
+    },
+    {
+      icon: Heart,
+      title: 'Aromaterapia Aplicada',
+      description: 'Sinergias personalizadas com óleos essenciais para equilíbrio emocional.',
+      link: '/servicos#aromaterapia'
+    },
+    {
+      icon: Shield,
+      title: 'Sistema Rainbow',
+      description: 'Limpeza profunda com aspiração aquática, ideal para alergias e problemas respiratórios.',
+      link: '/servicos#rainbow'
+    }
+  ];
+
+  const testimonials = [
+    {
+      name: 'Ana Silva',
+      role: 'Proprietária de Casa',
+      content: 'A Miss Clean transformou completamente a energia da minha casa. O serviço de aromaterapia é incrível e sinto o ambiente muito mais leve e harmonioso.',
+      rating: 5
+    },
+    {
+      name: 'Carlos Mendes',
+      role: 'Diretor de Empresa',
+      content: 'Contratámos a Miss Clean para o nosso escritório e a diferença é notável. Os colaboradores estão mais focados e o ambiente é muito mais agradável. Serviço premium!',
+      rating: 5
+    },
+    {
+      name: 'Maria Costa',
+      role: 'Mãe de 2 Crianças',
+      content: 'Finalmente encontrei um serviço que é seguro para as minhas crianças e animais. Os produtos ecológicos são fantásticos e o sistema Rainbow ajudou muito com as alergias.',
+      rating: 5
+    }
+  ];
+
+  const faqItems = [
+    {
+      question: 'O que torna a Miss Clean única em Portugal?',
+      answer: 'Somos a única empresa em Portugal que alia limpeza ecológica com aromaterapia e harmonização terapêutica. Não fazemos apenas limpeza física - transformamos a energia e o bem-estar dos espaços.'
+    },
+    {
+      question: 'Os produtos utilizados são seguros?',
+      answer: 'Sim! Utilizamos apenas produtos biodegradáveis, naturais e livres de químicos tóxicos. São completamente seguros para crianças, animais de estimação, idosos e pessoas com alergias ou doenças respiratórias.'
+    },
+    {
+      question: 'Como funciona a limpeza terapêutica?',
+      answer: 'A limpeza terapêutica integra óleos essenciais cuidadosamente selecionados conforme as necessidades energéticas e emocionais do espaço. Aplicamos técnicas de aromaterapia, música e cromoterapia para equilibrar a energia do local.'
+    },
+    {
+      question: 'Qual é a diferença entre os serviços para residências e empresas?',
+      answer: 'Para residências, focamos no bem-estar familiar e harmonização do lar. Para empresas, adaptamos os serviços para aumentar a produtividade, reduzir o stress e criar ambientes mais harmoniosos para as equipas.'
+    },
+    {
+      question: 'Oferecem formações e workshops?',
+      answer: 'Sim! Promovemos workshops de Limpeza Ecológica e Terapêutica, Aromaterapia Doméstica e formações profissionalizantes. Ensinamos métodos naturais e conscientes para transformar a limpeza num ato de cura.'
+    },
+    {
+      question: 'Como posso começar?',
+      answer: 'Pode preencher o nosso questionário para receber uma proposta personalizada, contactar-nos via WhatsApp ou marcar uma consulta gratuita. Vamos avaliar as necessidades do seu espaço e criar um plano à medida.'
+    }
+  ];
+
+  return (
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Image/Video Placeholder */}
+        <div 
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: 'url(https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2070)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-dark/80 via-teal/60 to-gray-dark/80" />
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 container mx-auto px-4 py-32 text-center text-white">
+          <div className="max-w-4xl mx-auto space-y-8">
+            <div className="inline-block">
+              <span className="bg-gold/20 border border-gold text-gold px-4 py-2 rounded-full text-sm font-semibold backdrop-blur-sm">
+                ✨ Único em Portugal
+              </span>
+            </div>
+            
+            <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+              Limpeza Ecológica e <span className="text-gold">Terapêutica</span>
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-gray-100 leading-relaxed max-w-3xl mx-auto">
+              Transformamos ambientes físicos e emocionais através da sustentabilidade,
+              aromaterapia e bem-estar. Mais do que limpeza — é equilíbrio e harmonia.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
+              <button
+                onClick={() => setShowQuiz(true)}
+                className="group flex items-center gap-2 bg-gold hover:bg-gold/90 text-white px-10 py-5 rounded-full text-lg font-semibold transition-all hover:scale-105 shadow-2xl"
+              >
+                Receber Proposta Personalizada
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+              
+              <Link
+                to="/sobre"
+                className="flex items-center gap-2 bg-white/10 backdrop-blur-sm border-2 border-white hover:bg-white hover:text-gray-dark text-white px-10 py-5 rounded-full text-lg font-semibold transition-all"
+              >
+                Conhecer a Miss Clean
+              </Link>
+            </div>
+
+            {/* Trust Indicators */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-12 max-w-3xl mx-auto">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-gold">100%</div>
+                <div className="text-sm text-gray-300">Ecológico</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-gold">5★</div>
+                <div className="text-sm text-gray-300">Avaliação</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-gold">+200</div>
+                <div className="text-sm text-gray-300">Clientes</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-gold">Único</div>
+                <div className="text-sm text-gray-300">em Portugal</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
+            <div className="w-1 h-3 bg-white/50 rounded-full" />
+          </div>
+        </div>
+      </section>
+
+      {/* Quiz Modal */}
+      {showQuiz && (
+        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+          <div className="my-8">
+            <LeadQuiz onClose={() => setShowQuiz(false)} />
+          </div>
+        </div>
+      )}
+
+      {/* Unique in Portugal Section */}
+      <section className="py-20 bg-gradient-to-br from-gold/10 to-teal/10">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center space-y-6">
+            <div className="inline-block">
+              <Award className="w-16 h-16 text-gold mx-auto mb-4" />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-dark">
+              O Único Serviço em Portugal
+            </h2>
+            <p className="text-xl text-gray-600 leading-relaxed">
+              Somos pioneiros na integração de <span className="text-gold font-semibold">limpeza ecológica</span> com{' '}
+              <span className="text-teal font-semibold">aromaterapia e harmonização terapêutica</span>.
+              Não fazemos apenas limpeza — transformamos espaços em ambientes de bem-estar e equilíbrio.
+            </p>
+            <Link
+              to="/unico"
+              className="inline-flex items-center gap-2 text-gold font-semibold hover:gap-3 transition-all"
+            >
+              Descubra o que nos torna únicos
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-dark mb-4">
+              Nossos Serviços
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Soluções completas que aliam sustentabilidade, saúde e bem-estar
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {services.map((service, index) => (
+              <ServiceCard key={index} {...service} />
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link
+              to="/servicos"
+              className="inline-flex items-center gap-2 bg-gold hover:bg-gold/90 text-white px-8 py-4 rounded-full font-semibold transition-all hover:scale-105"
+            >
+              Ver Todos os Serviços
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits/Authority Section */}
+      <section className="py-20 bg-gray-light">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-dark mb-4">
+              Por Que Escolher a Miss Clean?
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="bg-white p-8 rounded-2xl shadow-lg text-center">
+              <div className="w-16 h-16 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Shield className="w-8 h-8 text-gold" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-dark mb-3">100% Seguro</h3>
+              <p className="text-gray-600">
+                Produtos naturais e biodegradáveis, seguros para toda a família e animais de estimação.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow-lg text-center">
+              <div className="w-16 h-16 bg-teal/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Sparkles className="w-8 h-8 text-teal" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-dark mb-3">Terapêutico</h3>
+              <p className="text-gray-600">
+                Aromaterapia e harmonização energética para o bem-estar físico e emocional.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow-lg text-center">
+              <div className="w-16 h-16 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <TrendingUp className="w-8 h-8 text-gold" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-dark mb-3">Resultados Comprovados</h3>
+              <p className="text-gray-600">
+                Mais de 200 clientes satisfeitos com ambientes transformados e energia renovada.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow-lg text-center">
+              <div className="w-16 h-16 bg-teal/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users className="w-8 h-8 text-teal" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-dark mb-3">Equipa Qualificada</h3>
+              <p className="text-gray-600">
+                Profissionais formados em limpeza ecológica, aromaterapia e harmonização de espaços.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow-lg text-center">
+              <div className="w-16 h-16 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Award className="w-8 h-8 text-gold" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-dark mb-3">Serviço Premium</h3>
+              <p className="text-gray-600">
+                Atendimento personalizado e consultoria para criar o ambiente perfeito.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow-lg text-center">
+              <div className="w-16 h-16 bg-teal/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Leaf className="w-8 h-8 text-teal" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-dark mb-3">Sustentável</h3>
+              <p className="text-gray-600">
+                Compromisso com o meio ambiente e práticas de responsabilidade ecológica.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-dark mb-4">
+              O Que Dizem os Nossos Clientes
+            </h2>
+            <p className="text-xl text-gray-600">
+              Histórias reais de transformação e bem-estar
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {testimonials.map((testimonial, index) => (
+              <TestimonialCard key={index} {...testimonial} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-gray-light">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-dark mb-4">
+              Perguntas Frequentes
+            </h2>
+            <p className="text-xl text-gray-600">
+              Tudo o que precisa saber sobre os nossos serviços
+            </p>
+          </div>
+
+          <div className="max-w-3xl mx-auto">
+            <FAQAccordion items={faqItems} />
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <CTASection
+        title="Pronto para Transformar o Seu Espaço?"
+        description="Entre em contacto connosco e receba uma proposta personalizada para o seu lar ou empresa."
+        primaryButtonText="Falar no WhatsApp"
+        secondaryButtonText="Ver Serviços"
+        secondaryButtonLink="/servicos"
+      />
+    </div>
+  );
+}
+
