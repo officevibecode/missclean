@@ -2,24 +2,27 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
 import { Logo } from '../Logo';
+import { LanguageToggle } from '../LanguageToggle';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 const WHATSAPP_NUMBER = '351913034241';
 
-const navLinks = [
-  { name: 'Início', path: '/' },
-  { name: 'Sobre', path: '/sobre' },
-  { name: 'Serviços', path: '/servicos' },
-  { name: 'Formações', path: '/formacoes' },
-  { name: 'Empresas', path: '/empresas' },
-  { name: 'Residências', path: '/residencias' },
-  { name: 'Único em Portugal', path: '/unico' },
-  { name: 'Contactos', path: '/contactos' },
+const getNavLinks = (t: (key: string) => string) => [
+  { name: t('nav.home'), path: '/' },
+  { name: t('nav.about'), path: '/sobre' },
+  { name: t('nav.services'), path: '/servicos' },
+  { name: t('nav.workshops'), path: '/formacoes' },
+  { name: t('nav.business'), path: '/empresas' },
+  { name: t('nav.residential'), path: '/residencias' },
+  { name: t('nav.unique'), path: '/unico' },
+  { name: t('nav.contact'), path: '/contactos' },
 ];
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,6 +41,8 @@ export function Navbar() {
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Olá! Gostaria de saber mais sobre os serviços da Miss Clean.')}`;
     window.open(url, '_blank');
   };
+
+  const navLinks = getNavLinks(t);
 
   return (
     <nav
@@ -58,7 +63,7 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-6">
+          <div className="hidden lg:flex items-center gap-4">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -74,13 +79,17 @@ export function Navbar() {
                 {link.name}
               </Link>
             ))}
-            <button
-              onClick={handleWhatsApp}
-              className="flex items-center gap-2 bg-gold hover:bg-gold/90 text-white px-6 py-2.5 rounded-full font-medium transition-all hover:scale-105"
-            >
-              <Phone className="w-4 h-4" />
-              Contactar
-            </button>
+            
+            <div className="flex items-center gap-3 ml-2">
+              <LanguageToggle />
+              <button
+                onClick={handleWhatsApp}
+                className="flex items-center gap-2 bg-gold hover:bg-gold/90 text-white px-6 py-2.5 rounded-full font-medium transition-all hover:scale-105"
+              >
+                <Phone className="w-4 h-4" />
+                {t('nav.contactButton')}
+              </button>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -114,12 +123,17 @@ export function Navbar() {
                   {link.name}
                 </Link>
               ))}
+              
+              <div className="flex items-center justify-center gap-3 px-4 py-3">
+                <LanguageToggle />
+              </div>
+              
               <button
                 onClick={handleWhatsApp}
                 className="mx-4 mt-2 flex items-center justify-center gap-2 bg-gold hover:bg-gold/90 text-white px-6 py-3 rounded-full font-medium transition-all"
               >
                 <Phone className="w-4 h-4" />
-                Contactar via WhatsApp
+                {t('nav.contactButton')}
               </button>
             </div>
           </div>

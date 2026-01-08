@@ -89,6 +89,7 @@ Mensagem: ${formData.message || '[Mensagem]'}`;
                 <h3 className="text-xl font-semibold mb-2">WhatsApp</h3>
                 <p className="text-teal-light mb-4">Resposta mais rápida</p>
                 <p className="font-semibold">+351 913 034 241</p>
+                <p className="text-xs opacity-75 mt-1">Chamada para rede móvel nacional</p>
                 <p className="text-sm opacity-90 mt-2">Clique para conversar agora</p>
               </button>
 
@@ -113,6 +114,7 @@ Mensagem: ${formData.message || '[Mensagem]'}`;
                 <h3 className="text-xl font-semibold mb-2">Telefone</h3>
                 <p className="text-gray-400 mb-4">Falar directamente</p>
                 <p className="font-semibold">+351 913 034 241</p>
+                <p className="text-xs opacity-75 mt-1">Chamada para rede móvel nacional</p>
                 <p className="text-sm opacity-90 mt-2">Seg-Sex: 9h-19h</p>
               </a>
             </div>
@@ -248,6 +250,7 @@ Mensagem: ${formData.message || '[Mensagem]'}`;
                       <div>
                         <h3 className="font-semibold text-gray-dark mb-1">Telefone / WhatsApp</h3>
                         <p className="text-gray-600">+351 913 034 241</p>
+                        <p className="text-xs text-gray-500 mt-1">Chamada para rede móvel nacional</p>
                       </div>
                     </div>
 
@@ -295,21 +298,27 @@ Mensagem: ${formData.message || '[Mensagem]'}`;
                   <h3 className="font-semibold text-gray-dark mb-4">Siga-nos nas Redes Sociais</h3>
                   <div className="flex gap-4">
                     <a
-                      href="#"
+                      href="https://www.instagram.com/servicos_limpeza_missclean/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-12 h-12 bg-white hover:bg-gold rounded-full flex items-center justify-center transition-all hover:scale-110 shadow-lg"
                       aria-label="Instagram"
                     >
                       <Instagram className="w-6 h-6 text-gray-dark" />
                     </a>
                     <a
-                      href="#"
+                      href="https://www.facebook.com/profile.php?id=100063543883860"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-12 h-12 bg-white hover:bg-gold rounded-full flex items-center justify-center transition-all hover:scale-110 shadow-lg"
                       aria-label="Facebook"
                     >
                       <Facebook className="w-6 h-6 text-gray-dark" />
                     </a>
                     <a
-                      href="#"
+                      href="https://www.linkedin.com/in/sónia-jesus-363b18209/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-12 h-12 bg-white hover:bg-gold rounded-full flex items-center justify-center transition-all hover:scale-110 shadow-lg"
                       aria-label="LinkedIn"
                     >

@@ -95,7 +95,7 @@ export function Business() {
               <button className="bg-teal hover:bg-teal/90 text-white px-8 py-4 rounded-full font-semibold transition-all hover:scale-105">
                 Solicitar Orçamento
               </button>
-              <button className="border-2 border-teal text-teal hover:bg-teal hover:text-white px-8 py-4 rounded-full font-semibold transition-all">
+              <button className="bg-white/10 backdrop-blur-sm border-2 border-white hover:bg-white hover:text-gray-dark text-white px-10 py-5 rounded-full text-lg font-semibold transition-all">
                 Agendar Visita
               </button>
             </div>

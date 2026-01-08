@@ -1,5 +1,6 @@
 import { Heart, Target, Eye, Award, Sparkles, Users } from 'lucide-react';
 import { CTASection } from '../components/CTASection';
+import { AuthorityCertifications } from '../components/AuthorityCertifications';
 
 export function About() {
   return (
@@ -199,38 +200,8 @@ export function About() {
         </div>
       </section>
 
-      {/* Certifications */}
-      <section className="py-20 bg-gradient-to-br from-gold/10 to-teal/10">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-dark">
-              Certificações & Formações
-            </h2>
-            <p className="text-xl text-gray-600 leading-relaxed">
-              A nossa equipa possui formação certificada em aromaterapia, limpeza ecológica,
-              sustentabilidade ambiental e harmonização de espaços. Estamos em constante
-              atualização para oferecer sempre o melhor serviço.
-            </p>
-            <div className="grid md:grid-cols-3 gap-6 pt-8">
-              <div className="bg-white p-6 rounded-xl shadow-lg">
-                <Award className="w-12 h-12 text-gold mx-auto mb-4" />
-                <h3 className="font-semibold text-gray-dark mb-2">Aromaterapia</h3>
-                <p className="text-sm text-gray-600">Certificação Profissional</p>
-              </div>
-              <div className="bg-white p-6 rounded-xl shadow-lg">
-                <Award className="w-12 h-12 text-teal mx-auto mb-4" />
-                <h3 className="font-semibold text-gray-dark mb-2">Limpeza Ecológica</h3>
-                <p className="text-sm text-gray-600">Formação Avançada</p>
-              </div>
-              <div className="bg-white p-6 rounded-xl shadow-lg">
-                <Award className="w-12 h-12 text-gold mx-auto mb-4" />
-                <h3 className="font-semibold text-gray-dark mb-2">Harmonização</h3>
-                <p className="text-sm text-gray-600">Especialização em Espaços</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Authority & Certifications */}
+      <AuthorityCertifications />
 
       {/* CTA */}
       <CTASection
