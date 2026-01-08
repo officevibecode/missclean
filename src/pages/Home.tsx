@@ -6,6 +6,7 @@ import { TestimonialCard } from '../components/TestimonialCard';
 import { CTASection } from '../components/CTASection';
 import { FAQAccordion } from '../components/FAQAccordion';
 import { LeadQuiz } from '../components/LeadQuiz';
+import { AuthorityCertifications } from '../components/AuthorityCertifications';
 
 export function Home() {
   const [showQuiz, setShowQuiz] = useState(false);
@@ -304,6 +305,9 @@ export function Home() {
           </div>
         </div>
       </section>
+
+      {/* Authority & Certifications Section */}
+      <AuthorityCertifications />
 
       {/* Testimonials Section */}
       <section className="py-20 bg-white">

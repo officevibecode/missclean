@@ -98,10 +98,13 @@ export function Footer() {
               <li>
                 <button
                   onClick={handleWhatsApp}
-                  className="flex items-center gap-2 text-gray-400 hover:text-gold transition-colors"
+                  className="flex flex-col gap-1 text-gray-400 hover:text-gold transition-colors text-left"
                 >
-                  <Phone className="w-4 h-4" />
-                  <span>+351 913 034 241</span>
+                  <div className="flex items-center gap-2">
+                    <Phone className="w-4 h-4" />
+                    <span>+351 913 034 241</span>
+                  </div>
+                  <span className="text-xs text-gray-500 ml-6">Chamada para rede móvel nacional</span>
                 </button>
               </li>
               <li>
@@ -124,21 +127,27 @@ export function Footer() {
               <h4 className="text-sm font-semibold mb-3 text-gold">Siga-nos</h4>
               <div className="flex gap-3">
                 <a
-                  href="#"
+                  href="https://www.instagram.com/servicos_limpeza_missclean/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-gray-700 hover:bg-gold flex items-center justify-center transition-colors"
                   aria-label="Instagram"
                 >
                   <Instagram className="w-5 h-5" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.facebook.com/profile.php?id=100063543883860"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-gray-700 hover:bg-gold flex items-center justify-center transition-colors"
                   aria-label="Facebook"
                 >
                   <Facebook className="w-5 h-5" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/in/sónia-jesus-363b18209/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-gray-700 hover:bg-gold flex items-center justify-center transition-colors"
                   aria-label="LinkedIn"
                 >
